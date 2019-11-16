@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Request和Response的区别 | Smile</title>
+  <meta name="author" content="John Doe">
+
+  
+  <meta name="description" content="Smile-ZYF�Ĳ���">
+  
+
+  
+  <meta name="keywords" content="Android Python">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Request和Response的区别">
+  <meta property="og:site_name" content="Smile">
+
+  
+  
+
+  
+    <meta property="og:image" content>
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon">
+  
+
+  <link rel="alternate" href="/atom.xml" title="Smile" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+
+</head>
+</html>
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Smile</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-11-10T22:01:06.000Z"><a href="/2019/11/11/Request和Response的区别/">2019-11-11</a></time>
+      
+      
+  
+    <h1 class="title">Request和Response的区别</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Request 和 Response 对象起到了服务器与客户机之间的信息传递作用。Request 对象用于接收客户端浏览器提交的数据，而 Response 对象的功能则是将服务器端的数据发送到客户端浏览器。</p>
+<p>一、Request对象的五个集合：</p>
+<p>QueryString：用以获取客户端附在url地址后的查询字符串中的信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：stra=Request.QueryString [&quot;strUserld&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>Form：用以获取客户端在FORM表单中所输入的信息。（表单的method属性值需要为POST）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：stra=Request.Form[&quot;strUserld&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>Cookies：用以获取客户端的Cookie信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：stra=Request.Cookies[&quot;strUserld&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>ServerVariables：用以获取客户端发出的HTTP请求信息中的头信息及服务器端环境变量信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：stra=Request.ServerVariables[&quot;REMOTE_ADDR&quot;],返回客户端IP地址</span><br></pre></td></tr></table></figure>
+
+<p>ClientCertificate：用以获取客户端的身份验证信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：stra=Request.ClientCertificate[&quot;VALIDFORM&quot;],对于要求安全验证的网站，返回有效起始日期。</span><br></pre></td></tr></table></figure>
+
+<p>二、Response对象<br>Response对象用于动态响应客户端请示，控制发送给用户的信息，并将动态生成响应。Response对象提供了一个数据集合cookie，它用于在客户端写入cookie值。若指定的cookie不存在，则创建它。若存在，则将自动进行更新。结果返回给客户端浏览器。<br>语法格式：Response.Cookies(CookieName)[(key)|.attribute]=value。这里的CookiesName是指定的Cookie的名称，如果指定了Key，则该Cookie就是一个字典，Attribute属性包括Domain，Expires，HasKeys，Path，Secure。</p>
+<p>response的方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Write：向客户端发送浏览器能够处理的各种数据,包括:html代码,脚本程序等。</span><br><span class="line"></span><br><span class="line">Redirect：response.redirect(&quot;url&quot;)的作用是在服务器端重定向于另一个网页。</span><br><span class="line"></span><br><span class="line">End：用来终止脚本程序。</span><br><span class="line"></span><br><span class="line">Clear：要说到Clear方法，就必须提到response的Buffer属性，Buffer属性用来设置服务器端是否将页面先输出到缓冲区。语法为：Response.Buffer=True/False</span><br><span class="line"></span><br><span class="line">Flush：当Buffer的值为True时，Flush方法用于将缓冲区中的当前页面内容立刻输出到客户端。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2019/11/17/星期六/">星期六</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/Request和Response的区别/">Request和Response的区别</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/jsp中post和get的区别及使用/">jsp中post和get的区别及使用</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/图片自适应的五种可能/">图片自适应的五种可能</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/JDBC连接数据库步骤/">JDBC连接数据库步骤</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2019 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

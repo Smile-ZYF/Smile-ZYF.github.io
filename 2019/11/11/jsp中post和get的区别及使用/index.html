@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>jsp中post和get的区别及使用 | Smile</title>
+  <meta name="author" content="John Doe">
+
+  
+  <meta name="description" content="Smile-ZYF�Ĳ���">
+  
+
+  
+  <meta name="keywords" content="Android Python">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="jsp中post和get的区别及使用">
+  <meta property="og:site_name" content="Smile">
+
+  
+  
+
+  
+    <meta property="og:image" content>
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon">
+  
+
+  <link rel="alternate" href="/atom.xml" title="Smile" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+
+</head>
+</html>
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Smile</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-11-10T21:58:31.000Z"><a href="/2019/11/11/jsp中post和get的区别及使用/">2019-11-11</a></time>
+      
+      
+  
+    <h1 class="title">jsp中post和get的区别及使用</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="1：请求数据的大小不同。"><a href="#1：请求数据的大小不同。" class="headerlink" title="1：请求数据的大小不同。"></a><strong>1：请求数据的大小不同。</strong></h3><p>因为get请求的数据是要追加到URL中，而URL的数据量一般不能超过2K，所以用get请求的方法对数据的大小有限制。而post请求方法是把数据放在消息体中，所以理论上对数据量没有限制。（但是实际操作中也不能能太大）</p>
+<h3 id="2：安全性不一样"><a href="#2：安全性不一样" class="headerlink" title="2：安全性不一样"></a><strong>2：安全性不一样</strong></h3><p>因为get请求的数据是追加在URL中，外部用户能很方便的看到，从这个角度上来讲不安全。而post方法因为是讲请求放在消息体中，不会直接在URL中显示所以从这个角度来说数据会比较安全。</p>
+<h3 id="3：书签建立"><a href="#3：书签建立" class="headerlink" title="3：书签建立"></a><strong>3：书签建立</strong></h3><p>get请求可以建立书签；post请求则不能。例如：假设你有一个页面允许用户指定搜索规则。用户可能一个星期之后才回来，想要得到原来的数据，但此时服务器上已经有新的数据了。</p>
+<h3 id="4：方法的使用"><a href="#4：方法的使用" class="headerlink" title="4：方法的使用"></a><strong>4：方法的使用</strong></h3><p>get用于得到某些东西，只是简单的获取，不会对服务器做任何的改变。post则用户发送数据来进行处理，可以修改服务器上的数据。</p>
+<h3 id="5：请求是否幂等"><a href="#5：请求是否幂等" class="headerlink" title="5：请求是否幂等"></a><strong>5：请求是否幂等</strong></h3><p>get请求是幂等的，它只是要得到一些东西，不会修改服务器上的内容。它能执行多次，而且不会产生任何不好的副作用。而post不是幂等的，post体中的提交的数据可能用于不可逆转的事务。所以从这个角度上来看的话要慎重使用doPost()功能。</p>
+<p>若表单中未指出method=“POST”，就会默认为HTTPGET请求。即缺省状态是调用get请求。</p>
+<p>在学习JavaWeb最初的开始阶段，大家都会遇到HttpServlet中的doGet和doPost方法。</p>
+<p>（1）doGet方法：主要是处理Http中的Get请求<br>（2）doPost方法：主要是处理Http中的Post请求</p>
+<h3 id="那么Get请求和Post请求到底有什么样的区别"><a href="#那么Get请求和Post请求到底有什么样的区别" class="headerlink" title="那么Get请求和Post请求到底有什么样的区别"></a><strong>那么Get请求和Post请求到底有什么样的区别</strong></h3><p>（1）get只有一个流，参数附加在url后，大小个数有严格限制且只能是字符串<br>例如，<a href="http://localhost:8888/javaweb/getServlet?name=123" target="_blank" rel="noopener">http://localhost:8888/javaweb/getServlet?name=123</a><br>（2）post的参数是通过另外的流传递的，不通过url，所以可以很大，也可以传递二进制数据，如文件的上传。</p>
+<h3 id="什么时候使用doGet和doPost方法-："><a href="#什么时候使用doGet和doPost方法-：" class="headerlink" title="什么时候使用doGet和doPost方法 ："></a><strong>什么时候使用doGet和doPost方法 ：</strong></h3><p>1.通过表单提交到的servlet,看form的method是get还是post<br>2.通过链接&lt;a href…&gt;访问的servlet,doGet<br>3.直接在ie地址栏中键入的servlet地址,doGet</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2019/11/17/星期六/">星期六</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/Request和Response的区别/">Request和Response的区别</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/jsp中post和get的区别及使用/">jsp中post和get的区别及使用</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/图片自适应的五种可能/">图片自适应的五种可能</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/JDBC连接数据库步骤/">JDBC连接数据库步骤</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2019 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

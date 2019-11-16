@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>MYSQL知识点 | Smile</title>
+  <meta name="author" content="John Doe">
+
+  
+  <meta name="description" content="Smile-ZYF�Ĳ���">
+  
+
+  
+  <meta name="keywords" content="Android Python">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MYSQL知识点">
+  <meta property="og:site_name" content="Smile">
+
+  
+  
+
+  
+    <meta property="og:image" content>
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon">
+  
+
+  <link rel="alternate" href="/atom.xml" title="Smile" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+
+</head>
+</html>
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Smile</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-10-31T12:17:15.000Z"><a href="/2019/10/31/MYSQL知识点/">2019-10-31</a></time>
+      
+      
+  
+    <h1 class="title">MYSQL知识点</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1-管理数据库语句："><a href="#1-管理数据库语句：" class="headerlink" title="1.管理数据库语句："></a>1.管理数据库语句：</h2><p><strong>使用数据库：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use 数据库名;</span><br></pre></td></tr></table></figure>
+
+<p><strong>添加数据库：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名;</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改数据库：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter database 数据库名;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除数据库：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database 数据库名;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看所有数据库：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-管理表语句："><a href="#2-管理表语句：" class="headerlink" title="2.管理表语句："></a><strong>2.管理表语句：</strong></h2><p><strong>添加数据表：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">create table 表名(</span><br><span class="line"></span><br><span class="line">　　列名 数据类型 数据约束,</span><br><span class="line"></span><br><span class="line">　　列名 数据类型 数据约束</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create table student(</span><br><span class="line"></span><br><span class="line">　　name varchar(20) not null,</span><br><span class="line"></span><br><span class="line">　　age int(4)</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改数据表：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名;</span><br></pre></td></tr></table></figure>
+
+<p>1)在表中增加新字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table student add colunm name varchar(20);</span><br></pre></td></tr></table></figure>
+
+<p>2)删除表中的字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table student drop name;</span><br></pre></td></tr></table></figure>
+
+<p>3)修改表中字段的类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table student modify name varchar(10);</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除数据表：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">drop table 表名;</span><br><span class="line"></span><br><span class="line">drop table student;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看所有表：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-管理数据语句："><a href="#3-管理数据语句：" class="headerlink" title="3.管理数据语句："></a>3.管理数据语句：</h2><p><strong>插入数据：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名 (列1,列2…) values (值1,值2…);</span><br><span class="line"></span><br><span class="line">insert into student (name,age) values (‘张三’,20);</span><br></pre></td></tr></table></figure>
+
+<p><strong>更新数据：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update 表名 set 列=修改值 where 条件;</span><br><span class="line"></span><br><span class="line">update student set name=’李四’ where name=’张三’;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除数据：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名 where 条件;</span><br><span class="line"></span><br><span class="line">delete from student where name=’李四’;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询数据：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">selete * from 表名 where 条件;</span><br><span class="line"></span><br><span class="line">selete * from student where name=’张三’;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-各种查询语句："><a href="#4-各种查询语句：" class="headerlink" title="4.各种查询语句："></a><strong>4.各种查询语句：</strong></h2><p><strong>查询时指定别名：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1) selete id AS ‘编号’,name AS ‘姓名’ from student;</span><br><span class="line"></span><br><span class="line">2) selete id ‘编号’,name ‘姓名’ from student;(AS可以省略)</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询时合并列：</strong></p>
+<p>需求:查询每个学生的总分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete name AS ‘姓名’,(servlet+mysql) AS ‘总成绩’ from student;</span><br></pre></td></tr></table></figure>
+
+<p>注意:合并列的字段必须是数值类型的字段</p>
+<p><strong>查询时去除重复(distinct)：</strong></p>
+<p>需求:查询有哪些地区的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete DISTINCT address from student;</span><br></pre></td></tr></table></figure>
+
+<p>另一种语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete DISTINCT(address) from student;</span><br></pre></td></tr></table></figure>
+
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a><strong>条件查询</strong></h3><p><strong>逻辑条件: and or</strong></p>
+<p>需求:查询学生的id为1，且姓名为张三的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete * from student where id=1 and name=’张三’;(交集)</span><br></pre></td></tr></table></figure>
+
+<p>需求:查询学生的id为2，或姓名为张三的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete * from student where id=2 or name=’张三’;(并集)</span><br></pre></td></tr></table></figure>
+
+<p><strong>比较条件: &gt; &lt; &gt;= &lt;= = &lt;&gt; (between and–在…之间 包前包后)</strong></p>
+<p>需求:查询servlet分数大于80分的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete * from student where servlet&gt;80;</span><br></pre></td></tr></table></figure>
+
+<p>需求:查询mysql分数小于或等于85分的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete * from student where mysql&lt;=85;</span><br></pre></td></tr></table></figure>
+
+<p>需求:查询servlet分数大于或等于80分，且小于或等于85分的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete * from student where servlet&gt;=80 AND servlet&lt;=85;</span><br></pre></td></tr></table></figure>
+
+<p>代替上面语句的语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete * from student where servlet BETWEEN 80 AND 85;</span><br></pre></td></tr></table></figure>
+
+<p>需求:查询年龄不等于30的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete * from student where age&lt;&gt;30;</span><br></pre></td></tr></table></figure>
+
+<p><strong>判空条件: is null, is not null, =**</strong>’’<strong>, &lt;&gt;</strong>’’**</p>
+<p>Null:表示没有数据</p>
+<p>空字符:表示有数据</p>
+<p>需求:查询没有性别数据的学生(数据‘男’或‘女’)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete* from student where gender IS NULL OR gender=’’;</span><br></pre></td></tr></table></figure>
+
+<p>需求:查询有性别数据的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selete * from student where gender IS NOT NULL AND gender&lt;&gt;’’;</span><br></pre></td></tr></table></figure>
+
+<p><strong>模糊条件: like</strong></p>
+<p>模糊替代符号:</p>
+<p>%:替代任意个字符</p>
+<p>_:替代一个字符</p>
+<p>需求:查询姓“李”的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM student WHERE NAME LIKE ‘李%’;</span><br></pre></td></tr></table></figure>
+
+<p>需求:查询姓名中包含‘四’字的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM student WHERE NAME LIKE ‘%四%’;</span><br></pre></td></tr></table></figure>
+
+<p>需求:查询姓‘李’，全名只有两个字的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM student WHERE NAME LIKE ‘李_’;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询后排序(order by)</strong></p>
+<p>DESC:降序。数值从大到小，字母z-a</p>
+<p>ASC:升序。数值从小到大，字母a-z</p>
+<p>默认情况下，按照插入的顺序排序</p>
+<p>需求:按照id的升序排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student order by id asc;</span><br></pre></td></tr></table></figure>
+
+<p>需求:按照servlet成绩降序排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student order by servlet desc;</span><br></pre></td></tr></table></figure>
+
+<p>多个排序条件的情况:先按照前面的条件排序，当出现重复记录，再按照后面的条件排序</p>
+<p>需求:按照age升序，再按照servlet成绩升序排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student order by age asc,servlet asc;</span><br></pre></td></tr></table></figure>
+
+<p><strong>分组查询(group by)</strong></p>
+<p>需求:查询每个地区有多少人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT address,COUNT(*) FROM student GROUP BY address;</span><br></pre></td></tr></table></figure>
+
+<p>需求:统计男女的人数</p>
+<p>注意:where条件必须放在group by 分组之前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT gender,COUNT(*) FROM student WHERE gender IS NOT NULL AND gender&lt;&gt;’’ GROUP BY gender;</span><br></pre></td></tr></table></figure>
+
+<p><strong>分组后筛选(having)</strong></p>
+<p>需求:查询哪些地区的人数是大于2个的地区</p>
+<p>查询哪些地区多少人 2)筛选人数大于2的地区</p>
+<p>注意:having使用在group by分组之后，对分组后的条件进行筛选</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT address,COUNT(*) FROM student GROUP BY address HAVING COUNT(*)&gt;2;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-数据约束（给表添加数据约束，从而约束用户操作表数据的行为）"><a href="#5-数据约束（给表添加数据约束，从而约束用户操作表数据的行为）" class="headerlink" title="5.数据约束（给表添加数据约束，从而约束用户操作表数据的行为）"></a>5.数据约束（给表添加数据约束，从而约束用户操作表数据的行为）</h2><p><strong>1）默认值约束(default)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table test(</span><br><span class="line"></span><br><span class="line">　　name varchar(20),</span><br><span class="line"></span><br><span class="line">　　gender varchar(20) default ‘男’</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>需求:当不插入gender的时候，分配一个‘男’的默认值</p>
+<p>注意:1)当没有插入gender字段的时候，分配一个默认值</p>
+<p><strong>2）非空约束（not null）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table test(</span><br><span class="line"></span><br><span class="line">　　name varchar(20) not null,</span><br><span class="line"></span><br><span class="line">　　gender varchar(20)</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>需求；name字段一定要有值(不能不插入数据，不能是null)，这是给name添加非空约束</p>
+<p>1)非空约束，不能不插入值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Insert into test(gender) values(‘男’);</span><br></pre></td></tr></table></figure>
+
+<p>2)非空约束，不能插入null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Insert into test(name,gender) values(null,’男’);</span><br></pre></td></tr></table></figure>
+
+<p><strong>3)唯一约束(unique)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table test(</span><br><span class="line"></span><br><span class="line">　　Id int unique,</span><br><span class="line"></span><br><span class="line">　　name varchar(20)</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>需求:id的值不能出现重复。这时就要给id添加一个唯一约束</p>
+<p>1)不能插入重复的值</p>
+<p>2)唯一约束，可以插入多个null。所以唯一约束不能约束null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Insert into test(id,name) values(1,’张三’);</span><br></pre></td></tr></table></figure>
+
+<p><strong>4)主键约束(primary key)(唯一+非空)</strong></p>
+<p>注意；</p>
+<p>1)通常情况下，我们会给每张表都设置一个主键字段，用来标记记录的唯一性</p>
+<p>2)但是不建议把业务含义字段作为主键，因为随着业务的变化，业务字段可能出现重复</p>
+<p>3)建议给每张表都独立添加一个叫id的字段，把这个id字段设置成主键，用来作为记录的唯一性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table test(</span><br><span class="line"></span><br><span class="line">　　Id int primary key,</span><br><span class="line"></span><br><span class="line">　　name varchar(20)</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>1)唯一性</p>
+<p>2)非空性</p>
+<p><strong>5)自增长约束(auto_increment)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table test(</span><br><span class="line"></span><br><span class="line">　　Id int primary key auto_increment,</span><br><span class="line"></span><br><span class="line">　　name varchar(20)</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>自增长约束:初始值为0，每次递增1</p>
+<p>使用truncate table 删除数据的时候，可以把自增长的初始值置为0</p>
+<p><strong>6)外键约束</strong></p>
+<p>员工表(副表:被别的表约束的表，外键设置在副表)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Create table employee(</span><br><span class="line"></span><br><span class="line">　　Id int primary key auto_increment,</span><br><span class="line"></span><br><span class="line">　　name varchar(20),</span><br><span class="line"></span><br><span class="line">　　deptId int,</span><br><span class="line"></span><br><span class="line">　　添加外键约束(foreign key)</span><br><span class="line"></span><br><span class="line">　　Constraint employee_dept_fk foreign key(deptId) references dept(id)</span><br><span class="line"></span><br><span class="line"> 　　　　　　 外键名 外键字段</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>部门表(主表:约束别人的表)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Create table dept(</span><br><span class="line"></span><br><span class="line">　　Id int primary key auto_increment,</span><br><span class="line"></span><br><span class="line">　　Name varchar(20)</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-多表查询"><a href="#6-多表查询" class="headerlink" title="6.多表查询"></a>6.多表查询</h2><p><strong>1.交叉连接查询(笛卡尔乘积:4*3=12，产生笛卡尔积的原因是没有足够的连接条件)(一般不用)</strong></p>
+<p>需求:查询员工及其部门名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT employee.name,dept.name</span><br><span class="line"></span><br><span class="line">FROM employee,dept;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.内连接查询(使用最多)</strong></p>
+<p>多表查询的步骤:1)确定查询哪些表</p>
+<p> 2)确定查询哪些字段</p>
+<p> 3)确定连接条件(规则:条件=表数量-1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT employee.name,dept.name</span><br><span class="line"></span><br><span class="line">FROM employee,dept</span><br><span class="line"></span><br><span class="line">WHERE employee.deptId=dept.id;</span><br></pre></td></tr></table></figure>
+
+<p>另一种语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.name,d.name</span><br><span class="line"></span><br><span class="line">FROM employee e</span><br><span class="line"></span><br><span class="line">INNER JOIN dept d</span><br><span class="line"></span><br><span class="line">ON e.deptId=d.id;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.左外连接查询(左表数据全部显示，如果右边不满足，则显示null)</strong></p>
+<p>需求:查询部门及其部门的员工</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT d.name,e.name</span><br><span class="line"></span><br><span class="line">FROM dept d</span><br><span class="line"></span><br><span class="line">LEFT OUTER JOIN employee e</span><br><span class="line"></span><br><span class="line">ON d.id=e.deptId;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.右外连接查询(右表数据全部显示，如果左边不满足，则显示null)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT d.name,e.name</span><br><span class="line"></span><br><span class="line">FROM employee e</span><br><span class="line"></span><br><span class="line">RIGHT OUTER JOIN dept d</span><br><span class="line"></span><br><span class="line">ON e.deptId=d.id;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2019/11/17/星期六/">星期六</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/Request和Response的区别/">Request和Response的区别</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/jsp中post和get的区别及使用/">jsp中post和get的区别及使用</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/图片自适应的五种可能/">图片自适应的五种可能</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/JDBC连接数据库步骤/">JDBC连接数据库步骤</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2019 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

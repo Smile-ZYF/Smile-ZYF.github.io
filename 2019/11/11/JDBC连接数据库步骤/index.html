@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>JDBC连接数据库步骤 | Smile</title>
+  <meta name="author" content="John Doe">
+
+  
+  <meta name="description" content="Smile-ZYF�Ĳ���">
+  
+
+  
+  <meta name="keywords" content="Android Python">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="JDBC连接数据库步骤">
+  <meta property="og:site_name" content="Smile">
+
+  
+  
+
+  
+    <meta property="og:image" content>
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon">
+  
+
+  <link rel="alternate" href="/atom.xml" title="Smile" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+
+</head>
+</html>
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Smile</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-11-10T21:52:04.000Z"><a href="/2019/11/11/JDBC连接数据库步骤/">2019-11-11</a></time>
+      
+      
+  
+    <h1 class="title">JDBC连接数据库步骤</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4 id="1-JAR包的引入"><a href="#1-JAR包的引入" class="headerlink" title="1.JAR包的引入"></a>1.JAR包的引入</h4><h5 id="（1）首先要百度下载一个jar包"><a href="#（1）首先要百度下载一个jar包" class="headerlink" title="（1）首先要百度下载一个jar包"></a>（1）首先要百度下载一个jar包</h5><h5 id="（2）在lib中导入jar包"><a href="#（2）在lib中导入jar包" class="headerlink" title="（2）在lib中导入jar包"></a>（2）在lib中导入jar包</h5><h5 id="3-在MySQL的jar包上右键选择-build-path-—-gt-add-to-build-path"><a href="#3-在MySQL的jar包上右键选择-build-path-—-gt-add-to-build-path" class="headerlink" title="(3)在MySQL的jar包上右键选择 build path —&gt; add to build path"></a>(3)在MySQL的jar包上右键选择 build path —&gt; add to build path</h5><h4 id="2-注册驱动"><a href="#2-注册驱动" class="headerlink" title="2.注册驱动"></a>2.注册驱动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="显示的加载到JVM中"><a href="#显示的加载到JVM中" class="headerlink" title="显示的加载到JVM中"></a>显示的加载到JVM中</h5><h4 id="3-获取连接"><a href="#3-获取连接" class="headerlink" title="3.获取连接"></a>3.获取连接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url = &quot;jdbc:mysql://127.0.0.1:3306/Schooldb&quot;;</span><br><span class="line">String userName = &quot;root&quot;;//MySQL配置时的用户名String password = &quot;111111&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-连接数据库"><a href="#4-连接数据库" class="headerlink" title="4.连接数据库"></a>4.连接数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManager.getConnection(url, userName, password);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-执行SQL语句"><a href="#5-执行SQL语句" class="headerlink" title="5.执行SQL语句"></a>5.执行SQL语句</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement statement = conn.createStatement();String sql = &quot;select * from StudentInfo&quot;;ResultSet rs = statement.executeQuery(sql);</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-遍历结果集"><a href="#6-遍历结果集" class="headerlink" title="6.遍历结果集"></a>6.遍历结果集</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while (rs.next()) &#123;    name = rs.getString(&quot;StudentName&quot;);    age = rs.getString(&quot;Age&quot;);    out.println(name + &quot;\t&quot; + age);&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-关闭对象"><a href="#7-关闭对象" class="headerlink" title="7.关闭对象"></a>7.关闭对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs.close();conn.close();</span><br></pre></td></tr></table></figure>
+
+<h4 id="具体代码如下："><a href="#具体代码如下：" class="headerlink" title="具体代码如下："></a>具体代码如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;%&gt;&lt;%@ page import=&quot;java.sql.*&quot;%&gt;&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;ISO-8859-1&quot;&gt;&lt;title&gt;Insert title here&lt;/title&gt;&lt;/head&gt;&lt;body&gt;	&lt;%		String driver = &quot;com.mysql.jdbc.Driver&quot;;    		String url = &quot;jdbc:mysql://127.0.0.1:3306/Schooldb&quot;;//url指向要访问的数据库名Schooldb(是你自己的数据库名)    		String userName = &quot;root&quot;;//MySQL配置时的用户名    		String password = &quot;111111&quot;;//Java连接MySQL配置时的密码		try &#123;			//1 加载驱动程序			Class.forName(driver);			//2 连接数据库			Connection conn = DriverManager.getConnection(url, userName, password);			//3 用来执行SQL语句			Statement statement = conn.createStatement();			//要执行的SQL语句 StudentInfo（自己要查询的数据表）			String sql = &quot;select * from StudentInfo&quot;;			ResultSet rs = statement.executeQuery(sql);            			String name = null;			String age = null;			while (rs.next()) &#123;                //StudentName、Age是自己数据表中的数据				name = rs.getString(&quot;StudentName&quot;);				age = rs.getString(&quot;Age&quot;);				out.println(name + &quot;\t&quot; + age);			&#125;			rs.close();			conn.close();		&#125; catch (ClassNotFoundException e) &#123;			System.out.println(&quot;Sorry,can`t find the Driver!&quot;);			e.printStackTrace();		&#125; catch (SQLException e) &#123;			e.printStackTrace();		&#125; catch (Exception e) &#123;			e.printStackTrace();		&#125;	%&gt;&lt;/body&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2019/11/17/星期六/">星期六</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/Request和Response的区别/">Request和Response的区别</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/jsp中post和get的区别及使用/">jsp中post和get的区别及使用</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/图片自适应的五种可能/">图片自适应的五种可能</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/11/JDBC连接数据库步骤/">JDBC连接数据库步骤</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2019 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

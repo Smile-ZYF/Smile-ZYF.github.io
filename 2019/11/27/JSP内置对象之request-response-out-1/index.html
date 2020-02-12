@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>JSP内置对象之request response out | Smile</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Smile">
+    <meta name="author" content="John Doe">
+    <meta name="description" content="" />
+    <meta name="keywords" content="Android Python" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Smile" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Smile</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-11-27T15:40:54.000Z" itemprop="datePublished">
+          2019-11-27
+      </time>
+    
+</span>
+                <h1>JSP内置对象之request response out</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="一、out对象："><a href="#一、out对象：" class="headerlink" title="一、out对象："></a>一、out对象：</h2><p>out对象是<strong>JspWriter</strong>类的实例，是向客户端输出内容常用的对象。<br>常用方法如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.<span class="function"><span class="keyword">void</span> <span class="title">println</span><span class="params">()</span> 向客户端打印字符串2.<span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span>  清除缓冲区的内容，如果在<span class="title">flush</span><span class="params">()</span>之后调用会抛出异常3.<span class="keyword">void</span> <span class="title">clearBuffer</span><span class="params">()</span> 清除缓冲区的内容，如果在<span class="title">flush</span><span class="params">()</span>之后调用不会抛出异常4.<span class="keyword">void</span> <span class="title">flush</span><span class="params">()</span>  将缓冲区内容输出到客户端5.<span class="keyword">int</span> <span class="title">getBufferSize</span><span class="params">()</span>  返回缓冲区字节数的大小，如不设缓冲区则为06.<span class="keyword">int</span> <span class="title">getRemaining</span><span class="params">()</span>  返回缓冲区还剩余多少可用7.<span class="keyword">boolean</span> <span class="title">isAutoFlush</span><span class="params">()</span>  返回缓冲区满时，是自动清空还是抛出异常8.<span class="keyword">void</span> <span class="title">close</span><span class="params">()</span>  关闭输出流</span></span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;  &lt;%    out.println("&lt;h2&gt;静夜思&lt;/h2&gt;");    out.println("床前明月光 &lt;br&gt;");    out.println("疑似地上霜 &lt;br&gt;");    out.println("举头望明月 &lt;br&gt;");    out.println("低头思故乡 &lt;br&gt;");   %&gt;    &lt;br&gt;    缓冲区大小：&lt;%=out.getBufferSize() %&gt;byte&lt;br&gt;    缓冲区剩余大小：&lt;%=out.getRemaining() %&gt;byte&lt;br&gt;    是否自动清除缓冲区：&lt;%=out.isAutoFlush() %&gt;&lt;br&gt;  &lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、request对象"><a href="#二、request对象" class="headerlink" title="二、request对象"></a>二、request对象</h2><p>客户端的请求信息被封装在request对象中，通过他才能了解到客户的需求，然后做出响应。他是<strong>HttpServletRequest</strong>的实例。request对象具有请求域，即完成客户端的请求之前，该对象一直有效。常用方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getParameter</span><span class="params">(String name)</span> 返回name指定参数的参数值String[] <span class="title">getParameterValues</span><span class="params">(String name)</span> 返回包含参数name的所有值的数组<span class="keyword">void</span> <span class="title">setAttribute</span><span class="params">(String,Object)</span> 存储此请求中的属性Object <span class="title">getAttribute</span><span class="params">(String name)</span> 返回指定属性的属性值String <span class="title">getContentType</span><span class="params">()</span> 得到请求体的MIME类型String <span class="title">getProtocol</span><span class="params">()</span> 返回请求用的协议类型及版本号String <span class="title">getServerName</span><span class="params">()</span> 返回接受请求的服务器主机名<span class="keyword">int</span> <span class="title">getServerPort</span><span class="params">()</span> 返回服务器接受该请求所用的端口号String <span class="title">getCharacterEncoding</span><span class="params">()</span> 返回字符编码方式<span class="keyword">void</span> <span class="title">setCharacterEncoding</span><span class="params">()</span> 设置请求的字符编码方式<span class="keyword">int</span> <span class="title">getCotentLenth</span><span class="params">()</span> 返回请求体的长度（字节数）String <span class="title">getRemoteAddr</span><span class="params">()</span> 返回发送此请求的客户端IP地址String <span class="title">getRealPath</span><span class="params">(String path)</span> 返回一虚拟路径的真实路径String <span class="title">getContextPath</span><span class="params">()</span> 返回上下文路径</span></span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">login.jsp：&lt;body&gt;    &lt;h1&gt;用户注册&lt;/h1&gt;    &lt;hr&gt;    &lt;form action="request.jsp" name="regForm" method="post"&gt;        &lt;table&gt;            &lt;tr&gt;                &lt;td&gt;用户名：&lt;/td&gt;                &lt;td&gt;&lt;input type="text" name="username"/&gt;&lt;/td&gt;            &lt;/tr&gt;            &lt;tr&gt;                &lt;td&gt;爱好：&lt;/td&gt;                &lt;td&gt;                    &lt;input type="checkbox" name="favorite" value="read"&gt;读书                    &lt;input type="checkbox" name="favorite" value="music"&gt;音乐                    &lt;input type="checkbox" name="favorite" value="movie"&gt;电影                    &lt;input type="checkbox" name="favorite" value="internet"&gt;排球                &lt;/td&gt;            &lt;/tr&gt;            &lt;tr&gt;                &lt;td colspan="2"&gt;&lt;input type="submit" value="提交"/&gt;&lt;/td&gt;            &lt;/tr&gt;        &lt;/table&gt;    &lt;/form&gt;    &lt;br&gt;&lt;br&gt;    &lt;a href="request.jsp?username="张三"&gt;测试URL传参数&lt;/a&gt;  &lt;/body&gt;</span><br><span class="line">request.jsp:&lt;body&gt;    &lt;h1&gt;request内置对象&lt;/h1&gt;    &lt;%request.setCharacterEncoding("utf-8"); %&gt; &lt;%--解决中文乱码问题，无法解决url传递中文的乱码问题 --%&gt;    &lt;%        request.setAttribute("password" , "123456");     %&gt;    用户名：&lt;%=request.getParameter("username") %&gt;    &lt;br&gt;    爱好：    &lt;%        if(request.getParameterValues("favorite")!=null)        &#123;            String[] favorites=request.getParameterValues("favorite");            for(int i=0;i&lt;favorites.length;i++)&#123;                out.write(favorites[i]+"&amp;nbsp;&amp;nbsp;");            &#125;        &#125;    %&gt;&lt;br&gt;    密码：&lt;%=request.getAttribute("password") %&gt;&lt;br&gt;    请求体的MIME类型：&lt;%=request.getContentType() %&gt;&lt;br&gt;    协议类型及版本号：&lt;%=request.getProtocol() %&gt;&lt;br&gt;    服务器主机名：&lt;%=request.getServerName() %&gt;&lt;br&gt;    服务器端口名：&lt;%=request.getServerPort() %&gt;&lt;br&gt;    请求文件长度：&lt;%=request.getContentLength() %&gt;&lt;br&gt;    请求客户端的IP地址：&lt;%=request.getRemoteAddr() %&gt;&lt;br&gt;    请求的真实路径：&lt;%=request.getRealPath("request.jsp") %&gt;&lt;br&gt;    请求的上下文路径：&lt;%=request.getContextPath() %&gt;&lt;br&gt;  &lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、response对象"><a href="#三、response对象" class="headerlink" title="三、response对象"></a>三、response对象</h2><p>response对象包含了相应客户请求的有关信息，但在jsp中很少直接使用到它。它是<strong>HttpServerResponse</strong>类的实例。response对象具有页面作用域，即访问一个页面时，该页面内的response对象只能对这次访问有效，其他页面的response对象对当前页面无效。常用方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String getCharacterEncoding() 返回响应用的是何种字符编码void setContentType() 设置响应的MIME类型printWriter getWriter() 返回可以向客户端输出字符的一个对象（注意比较printWriter和内置对象out的区别）sendRedirect(java.lang.String location) 重新定向客户端的请求</span><br></pre></td></tr></table></figure>
+
+<p>请求转发和请求重定向区别：<br>1.请求重定向：客户端行为，<strong>response.sendRedirect()</strong>，从本质上来讲等同于两次请求，前一次请求对象不会保存，地址栏的URL对象会改变。<br>2.请求转发：服务器行为，<strong>request.getRequestDispatcher().forward(request,response)</strong>；是一次请求，转发后请求对象会保存，地址栏的URL地址不会改变。<br>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.io.PrintWriter"</span>%&gt;&lt;%@ page language=<span class="string">"java"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span> contentType=<span class="string">"text/html; charset=utf-8"</span>%&gt;&lt;%    response.setContentType(<span class="string">"text/html; charset=utf-8"</span>);<span class="comment">//设置响应的MIME类型    out.println("&lt;h1&gt;response内置对象&lt;h1&gt;");    out.println("&lt;hr&gt;");    //out.flush();    PrintWriter outer=response.getWriter();//获得输出流对象    outer.println("大家好，我是response对象生成的outer对象");    response.sendRedirect("reg.jsp");//请求重定向 %&gt;</span></span><br></pre></td></tr></table></figure>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2019/11/27/关于jQuery中“animate-”函数对颜色变化的支持/" style="float: left;">
+        ← 关于jQuery中“animate()”函数对颜色变化的支持
+    </a>
+    
+    
+    <a class="pull-right" href="/2019/11/27/MYSQL运算符/">
+        MYSQL运算符 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Doe. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
